@@ -6,6 +6,7 @@ import Contact from './pages/Contact/Contact';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Header from './Components/Header/Header';
+import Loading from './Components/Loading/Loading';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div className="App">
         {/* So sánh bằng chứ không có chứa nữa */}
         <Header />
+        <Loading />
         <Switch>
           <Route exact path="/home" component={Home}></Route>
           <Route exact path="/contact" component={Contact}></Route>

@@ -1,33 +1,41 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Home extends Component {
+import { connect } from "react-redux";
+import { LayDanhSachPhimAction } from "../../redux/actions/PhimAction";
+
+class Home extends Component {
   //Tạo state danh sách film
-  state = {
-    arrFilms: [],
-  };
+  // Dữ liệu phim bị thay đổi
+
+  // state = {
+  //   arrFilms: [],
+  // };
 
   // Lấy thông tin từ backend
   loadFilm = () => {
-    const promise = axios({
-      url:
-        "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01",
-      method: "GET",
-    });
-    //Xử lý thành công
-    promise.then((result) => {
-      console.log("result", result.data);
-      this.setState({
-        arrFilms: result.data,
-      });
-    });
-    promise.catch((error) => {
-      console.log("err", error.respone.data);
-    });
+    this.props.dispatch(LayDanhSachPhimAction())
+    // const promise = axios({
+    //   url:
+    //     "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01",
+    //   method: "GET",
+    // });
+    // //Xử lý thành công
+    // promise.then((result) => {
+    //   console.log("result", result.data);
+    //   // lấy dữ liệu về dispatch lên reducer
+    //   this.props.dispatch({
+    //     type:'LAY_DANH_SACH_PHIM',
+    //     mangPhim: result.data
+    //   })
+    // });
+    // promise.catch((error) => {
+    //   console.log("err", error.respone.data);
+    // });
   };
 
   renderFilms = () => {
-    return this.state.arrFilms.map((film, index) => {
+    return this.props.mangPhim.map((film, index) => {
       return (
         <div className="col-4" key={index}>
           <div className="card text-left">
@@ -58,10 +66,20 @@ export default class Home extends Component {
     );
   }
   // hàm giống hàm render của react của react component kế thừa nên có
-  
-  componentDidMoun(){
+
+  componentDidMoun() {
+    // khi render ra giao diện nó chỉ chạy một lần duy nhất
+    // khi setState lại 
     // API muốn gọi sau khi giao diện render thì sẽ gọi trong hàm này
-    // liveSerco của react
+    // render xong thì nó sẽ tự động kich hoạt
     this.loadFilm();
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    mangPhim: state.PhimReducer.mangPhim,
+  };
+};
+
+export default connect(mapStateToProps)(Home);
