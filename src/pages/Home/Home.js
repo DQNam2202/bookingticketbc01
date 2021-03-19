@@ -67,9 +67,8 @@ class Home extends Component {
   }
   // hàm giống hàm render của react của react component kế thừa nên có
 
-  componentDidMoun() {
+  componentDidMount() {
     // khi render ra giao diện nó chỉ chạy một lần duy nhất
-    // khi setState lại 
     // API muốn gọi sau khi giao diện render thì sẽ gọi trong hàm này
     // render xong thì nó sẽ tự động kich hoạt
     this.loadFilm();

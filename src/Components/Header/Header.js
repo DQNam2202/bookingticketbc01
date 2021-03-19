@@ -2,8 +2,6 @@ import React, { Component } from "react";
 //Thẻ thay thế thẻ a trong routing của react là NavLink
 import { NavLink } from "react-router-dom";
 
-
-
 export default class Header extends Component {
   render() {
     return (
@@ -62,6 +60,36 @@ export default class Header extends Component {
                 >
                   Register
                 </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeClassName="bg-dark text-white"
+                  activeStyle={{ fontWeight: "bold" }}
+                  className="nav-link"
+                  to="/lifecycle"
+                >
+                  Lifecycle
+                </NavLink>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="dropdownId"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <div className="dropdown-menu" aria-labelledby="dropdownId">
+                  <NavLink className="dropdown-item" to="/usestatedemo">
+                    UseStateHooks
+                  </NavLink>
+                  <NavLink className="dropdown-item" to="/baitapchonxe">
+                    BaiTapChonXe
+                  </NavLink>
+                </div>
               </li>
             </ul>
             <form className="form-inline my-2 my-lg-0">
