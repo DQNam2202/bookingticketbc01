@@ -1,14 +1,23 @@
-
 const stateDefault = {
-    mangPhim: []
-}
+  mangPhim: [],
+  chiTietPhim: {},
+};
 
-export const PhimReducer = (state = stateDefault, action)=>{
-    switch(action.type){
-        case 'LAY_DANH_SACH_PHIM':{
-            state.mangPhim = [...action.mangPhim];
-            return {...state};
-        };break;
-        default: return {...state};
-    }
-}
+export const PhimReducer = (state = stateDefault, action) => {
+  switch (action.type) {
+    case "LAY_DANH_SACH_PHIM":
+      {
+        state.mangPhim = [...action.mangPhim];
+        return { ...state };
+      }
+      break;
+    case "LAY_CHI_TIET_PHIM":
+      {
+        state.chiTietPhim = action.chiTietPhim;
+        return { ...state };
+      }
+      break;
+    default:
+      return { ...state };
+  }
+};

@@ -22,6 +22,8 @@ export default class Header extends Component {
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
               <li className="nav-item active">
+                {/* NavLink chuyển đổi giữa các trang */}
+                {/* Querry Param chuyển từ trang này sang trang khách */}
                 <NavLink
                   activeClassName="bg-dark text-white"
                   activeStyle={{ fontWeight: "bold" }}
@@ -80,7 +82,7 @@ export default class Header extends Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  HOOK
                 </a>
                 <div className="dropdown-menu" aria-labelledby="dropdownId">
                   <NavLink className="dropdown-item" to="/usestatedemo">
@@ -89,7 +91,23 @@ export default class Header extends Component {
                   <NavLink className="dropdown-item" to="/baitapchonxe">
                     BaiTapChonXe
                   </NavLink>
+                  <NavLink className="dropdown-item" to="/useeffecthome">
+                    Useeffect Home
+                  </NavLink>
+                  <NavLink className="dropdown-item" to="/reduxhook">
+                    Redux Hook
+                  </NavLink>
                 </div>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeClassName="bg-dark text-white"
+                  activeStyle={{ fontWeight: "bold" }}
+                  className="nav-link"
+                  to="/detail"
+                >
+                  Detail
+                </NavLink>
               </li>
             </ul>
             <form className="form-inline my-2 my-lg-0">

@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { connect } from "react-redux";
 import { LayDanhSachPhimAction } from "../../redux/actions/PhimAction";
+import { NavLink } from "react-router-dom";
 
 class Home extends Component {
   //Tạo state danh sách film
@@ -14,7 +15,7 @@ class Home extends Component {
 
   // Lấy thông tin từ backend
   loadFilm = () => {
-    this.props.dispatch(LayDanhSachPhimAction())
+    this.props.dispatch(LayDanhSachPhimAction());
     // const promise = axios({
     //   url:
     //     "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01",
@@ -38,12 +39,17 @@ class Home extends Component {
     return this.props.mangPhim.map((film, index) => {
       return (
         <div className="col-4" key={index}>
-          <div className="card text-left">
-            <img className="card-img-top" src={film.hinhAnh} alt={film.hinhAnh} />
+          <NavLink className="card text-left" to={`detail/${film.maPhim}`}>
+            <img
+              className="card-img-top"
+              src={film.hinhAnh}
+              alt={film.hinhAnh}
+            />
+            <h4 className="card-title">{film.tenPhim}</h4>
             <div className="card-body">
-              <h4 className="card-title">{film.tenPhim}</h4>
+              <button className="btn btn-success">ĐẶT VÉ</button>
             </div>
-          </div>
+          </NavLink>
         </div>
       );
     });
