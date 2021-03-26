@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home/Home";
@@ -13,20 +12,27 @@ import BaiTapChonXe from "./pages/Hooks/BaiTapChonXe";
 import UseEffectHome from "./pages/Hooks/UseEffectHome";
 import ReduxHookHome from "./pages/Hooks/ReduxHookHome";
 import Detail from "./pages/Detail/Detail";
+import HookUseCallBack from "./pages/Hooks/HookUseCallBack";
+import HookUseMemo from "./pages/Hooks/HookUseMemo";
+import UseRef from "./pages/Hooks/UseRef";
+import ParantComponent from "./pages/HOC/ParantComponent";
+import { HomeTemplate } from "./templates/HomeTemplate";
+import {AdminTemplate} from './templates/AdminTemplate';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         {/* So sánh bằng chứ không có chứa nữa */}
-        <Header />
+        {/* <Header /> */}
+        <HomeTemplate exact path="/home" Component={Home}></HomeTemplate>
         <Loading />
         <Switch>
           <Route exact path="/home" component={Home}></Route>
-          <Route exact path="/contact" component={Contact}></Route>
-          <Route exact path="/login" component={Login}></Route>
-          <Route exact path="/register" component={Register}></Route>
-          <Route
+          <HomeTemplate exact path="/contact" component={Contact}></HomeTemplate>
+          <AdminTemplate exact path="/login" Component={Login}></AdminTemplate>
+          <HomeTemplate exact path="/register" Component={Register}></HomeTemplate>
+          <HomeTemplate
             exact
             path="/lifecycle"
             render={(propsRoute) => {
@@ -37,12 +43,16 @@ function App() {
                 </div>
               );
             }}
-          ></Route>
-          <Route exact path="/usestatedemo" component={UseStateHook}></Route>
-          <Route exact path="/useeffecthome" component={UseEffectHome}></Route>
-          <Route exact path="/reduxhook" component={ReduxHookHome}></Route>
-          <Route exact path="/baitapchonxe" component={BaiTapChonXe}></Route>
-          <Route exact path='/detail/:id' component={Detail}></Route>
+          ></HomeTemplate>
+          <HomeTemplate exact path="/usestatedemo" Component={UseStateHook}></HomeTemplate>
+          <HomeTemplate exact path="/useeffecthome" Component={UseEffectHome}></HomeTemplate>
+          <HomeTemplate exact path="/reduxhook" Component={ReduxHookHome}></HomeTemplate>
+          <HomeTemplate exact path="/baitapchonxe" Component={BaiTapChonXe}></HomeTemplate>
+          <HomeTemplate exact path="/detail/:id" Component={Detail}></HomeTemplate>
+          <HomeTemplate exact path="/usecallback" Component={HookUseCallBack}></HomeTemplate>
+          <HomeTemplate exact path="/useref" Component={UseRef}></HomeTemplate>
+          <HomeTemplate exact path='/demoprops' Component={ParantComponent}></HomeTemplate>
+          <HomeTemplate exact path="/usememo" Component={HookUseMemo}></HomeTemplate>
           {/* Route mặc định để dưới cùng của ứng đụng */}
           <Route exact path="/" component={Home}></Route>
         </Switch>
