@@ -18,6 +18,7 @@ import UseRef from "./pages/Hooks/UseRef";
 import ParantComponent from "./pages/HOC/ParantComponent";
 import { HomeTemplate } from "./templates/HomeTemplate";
 import {AdminTemplate} from './templates/AdminTemplate';
+import Checkout from "./pages/Checkout/Checkout";
 
 function App() {
   return (
@@ -29,9 +30,17 @@ function App() {
         <Loading />
         <Switch>
           <Route exact path="/home" component={Home}></Route>
-          <HomeTemplate exact path="/contact" component={Contact}></HomeTemplate>
+          <HomeTemplate
+            exact
+            path="/contact"
+            component={Contact}
+          ></HomeTemplate>
           <AdminTemplate exact path="/login" Component={Login}></AdminTemplate>
-          <HomeTemplate exact path="/register" Component={Register}></HomeTemplate>
+          <HomeTemplate
+            exact
+            path="/register"
+            Component={Register}
+          ></HomeTemplate>
           <HomeTemplate
             exact
             path="/lifecycle"
@@ -44,17 +53,55 @@ function App() {
               );
             }}
           ></HomeTemplate>
-          <HomeTemplate exact path="/usestatedemo" Component={UseStateHook}></HomeTemplate>
-          <HomeTemplate exact path="/useeffecthome" Component={UseEffectHome}></HomeTemplate>
-          <HomeTemplate exact path="/reduxhook" Component={ReduxHookHome}></HomeTemplate>
-          <HomeTemplate exact path="/baitapchonxe" Component={BaiTapChonXe}></HomeTemplate>
-          <HomeTemplate exact path="/detail/:id" Component={Detail}></HomeTemplate>
-          <HomeTemplate exact path="/usecallback" Component={HookUseCallBack}></HomeTemplate>
+          <HomeTemplate
+            exact
+            path="/usestatedemo"
+            Component={UseStateHook}
+          ></HomeTemplate>
+          <HomeTemplate
+            exact
+            path="/useeffecthome"
+            Component={UseEffectHome}
+          ></HomeTemplate>
+          <HomeTemplate
+            exact
+            path="/reduxhook"
+            Component={ReduxHookHome}
+          ></HomeTemplate>
+          <HomeTemplate
+            exact
+            path="/baitapchonxe"
+            Component={BaiTapChonXe}
+          ></HomeTemplate>
+
+          <HomeTemplate
+            exact
+            path="/usecallback"
+            Component={HookUseCallBack}
+          ></HomeTemplate>
           <HomeTemplate exact path="/useref" Component={UseRef}></HomeTemplate>
-          <HomeTemplate exact path='/demoprops' Component={ParantComponent}></HomeTemplate>
-          <HomeTemplate exact path="/usememo" Component={HookUseMemo}></HomeTemplate>
+          <HomeTemplate
+            exact
+            path="/demoprops"
+            Component={ParantComponent}
+          ></HomeTemplate>
+          <HomeTemplate
+            exact
+            path="/usememo"
+            Component={HookUseMemo}
+          ></HomeTemplate>
+          <HomeTemplate
+            exact
+            path="/detail/:id"
+            Component={Detail}
+          ></HomeTemplate>
+          <HomeTemplate
+            exact
+            path="/checkout/:id"
+            component={Checkout}
+          ></HomeTemplate>
           {/* Route mặc định để dưới cùng của ứng đụng */}
-          <Route exact path="/" component={Home}></Route>
+          <HomeTemplate exact path="/" component={Home}></HomeTemplate>
         </Switch>
       </div>
     </BrowserRouter>

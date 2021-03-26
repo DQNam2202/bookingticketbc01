@@ -115,6 +115,16 @@ export default class Header extends Component {
                   Detail
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  activeClassName="bg-dark text-white"
+                  activeStyle={{ fontWeight: "bold" }}
+                  className="nav-link"
+                  to="/checkout"
+                >
+                  Checkout
+                </NavLink>
+              </li>
             </ul>
             <form className="form-inline my-2 my-lg-0">
               <input

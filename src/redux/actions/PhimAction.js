@@ -46,7 +46,26 @@ export const layThongTinChiTietPhimAction = (maPhim) => {
       // Sau khi lấy dữ liệu từ API ta sẽ đưa dữ liệu lên reducer = dispatch
       dispatch({
         type: "LAY_CHI_TIET_PHIM",
-        chiTietPhim: result.data
+        chiTietPhim: result.data,
+      });
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
+};
+
+export const layThongTinPhongVeAction = (maLichChieu) => {
+  return async (dispatch) => {
+    try {
+      let result = await axios({
+        url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+        method: "GET",
+      });
+
+      // Sau khi lấy dữ liệu từ API ta sẽ đưa dữ liệu lên reducer = dispatch
+      dispatch({
+        type: 'LAY_THONG_TIN_PHONG_VE',
+        thongTinPhongVe: result.data
       });
     } catch (err) {
       console.log("error", err);

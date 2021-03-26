@@ -1,6 +1,7 @@
 const stateDefault = {
   mangPhim: [],
-  chiTietPhim: {},
+  chiTietPhim: { tenPhim: "default", heThongRapChieu: [] },
+  thongTinPhongVe: {},
 };
 
 export const PhimReducer = (state = stateDefault, action) => {
@@ -17,6 +18,10 @@ export const PhimReducer = (state = stateDefault, action) => {
         return { ...state };
       }
       break;
+    case "LAY_THONG_TIN_PHONG_VE": {
+      state.thongTinPhongVe = action.thongTinPhongVe;
+      return { ...state };
+    }break;
     default:
       return { ...state };
   }
