@@ -1,0 +1,27 @@
+.ghe {
+    /* Ghế chưa đặt */
+    width: 35px;
+    height: 35px;
+    margin: 8px;
+    border-radius: 5px;
+    color: #fff;
+    background: rgb(104, 101, 101);
+    cursor: pointer;
+}
+
+
+.gheDaDat {
+    /* Ghế đã bị người khác đặt */
+    background: whitesmoke !important;
+    cursor: no-drop;
+    color: black;
+}
+
+
+
+.gheVip {
+    background: rgb(177, 91, 9) !important;
+}
+.gheDangDat {
+    background: rgb(26, 184, 26) !important;
+}
