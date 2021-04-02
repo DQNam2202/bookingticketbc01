@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Redirect } from "react-router";
+import { taiKhoan } from "../../configs/setting";
 import { layThongTinPhongVeAction } from "../../redux/actions/PhimAction";
 import "./Checkout.css";
 
@@ -78,6 +80,12 @@ export default function Checkout(props) {
       return (tongTien += gheDangDat.giaVe);
     }, 0);
   };
+
+
+  if(!localStorage.getItem(taiKhoan)){
+    return <Redirect to='/login'></Redirect>
+  }
+
   return (
     <div className="container-fluid">
       <div className="row">

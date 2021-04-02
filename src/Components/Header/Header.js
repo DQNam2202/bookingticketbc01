@@ -1,9 +1,12 @@
-import React, { Component } from "react";
-//Thẻ thay thế thẻ a trong routing của react là NavLink
-import { NavLink } from "react-router-dom";
+import React from 'react'
 
-export default class Header extends Component {
-  render() {
+import {NavLink} from 'react-router-dom'
+import {useSelector} from 'react-redux'
+import {} from '../../redux/reducer/NguoiDungReducer'
+
+export default function Header() {
+
+    const {taiKhoan} = useSelector(state => state.NguoiDungReducer)
     return (
       <div>
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -44,14 +47,18 @@ export default class Header extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink
-                  activeClassName="bg-dark text-white"
-                  activeStyle={{ fontWeight: "bold" }}
-                  className="nav-link"
-                  to="/login"
-                >
-                  Login
-                </NavLink>
+                {taiKhoan !== "" ? (
+                  <span className="nav-link">{taiKhoan}</span>
+                ) : (
+                  <NavLink
+                    activeClassName="bg-dark text-white"
+                    activeStyle={{ fontWeight: "bold" }}
+                    className="nav-link"
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>
+                )}
               </li>
               <li className="nav-item">
                 <NavLink
@@ -144,4 +151,3 @@ export default class Header extends Component {
       </div>
     );
   }
-}

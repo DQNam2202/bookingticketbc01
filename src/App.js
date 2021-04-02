@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Router, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
@@ -19,17 +19,21 @@ import ParantComponent from "./pages/HOC/ParantComponent";
 import { HomeTemplate } from "./templates/HomeTemplate";
 import {AdminTemplate} from './templates/AdminTemplate';
 import Checkout from "./pages/Checkout/Checkout";
+//import history
+import {createBrowserHistory} from 'history'
+// Đổi hướng giúp chuyển hướng trang bất kỳ file nào
+export const history = createBrowserHistory();
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div className="App">
         {/* So sánh bằng chứ không có chứa nữa */}
         {/* <Header /> */}
-        <HomeTemplate exact path="/home" Component={Home}></HomeTemplate>
+        
         <Loading />
         <Switch>
-          <Route exact path="/home" component={Home}></Route>
+          <HomeTemplate exact path="/home" component={Home}></HomeTemplate>
           <HomeTemplate
             exact
             path="/contact"
@@ -104,7 +108,7 @@ function App() {
           <HomeTemplate exact path="/" component={Home}></HomeTemplate>
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
